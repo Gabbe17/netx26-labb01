@@ -1,2 +1,4 @@
 # netx26-labb01
-Upgift 1
+Namn: Gabriel Trpkoski
+Klass: ITSX26
+Datum: 2026-08-26
