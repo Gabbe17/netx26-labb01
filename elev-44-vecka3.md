@@ -217,6 +217,19 @@ ___
 
 Genom att endast tillåta den port som behövs
 minskar vi attackytan och risken för obehörig åtkomst.
+___
+### Förberedelsefrågan – Implicit tillit
 
+Vårt labbnät litar bland annat på jump-servern
+eftersom den används för att ansluta till labbservrarna.
+
+Ett exempel på implicit tillit är att jump-servern
+får försöka ansluta via SSH till alla labbservrar.
+
+Det är implicit tillit eftersom jump-servern får
+bred åtkomst på grund av sin roll i nätverket.
+
+Om en angripare får tillgång till jump-servern
+kan den försöka komma åt andra labbservrar.
 
 
