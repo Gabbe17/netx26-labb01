@@ -1,4 +1,4 @@
-### Ö1 – Vad går förlorat?
+### Ö1 – Vad går förlorat?✅
 
 **Fråga:** Nämn tre saker som går förlorade när loggarna bara finns lokalt på servern.
 
@@ -8,7 +8,7 @@
 2. **Tillgänglighet:** Om servern kraschar eller utsätts för ransomware kan loggarna bli otillgängliga eller gå förlorade.
 3. **Samband:** Det blir svårare att jämföra händelser från flera servrar om loggarna inte samlas på ett gemensamt ställe.
 ___
-### Ö2 – Läs en syslograd
+### Ö2 – Läs en syslograd✅
 
 **Fråga:** Vad betyder varje del av följande syslograd?
 
@@ -29,7 +29,7 @@ ___
 - **51234:** Porten som man använde.
 - **ssh2:** SSH-protokoll version 2.
 ___
-### Ö3 – Räkna PRI
+### Ö3 – Räkna PRI✅
 
 **Fråga:** PRI = facility × 8 + severity. Vilken facility och severity har PRI 13, 86 och 166? Vilket PRI får local5.info (local5 = 21, info = 6)?
 
@@ -42,7 +42,7 @@ Formel: PRI = facility × 8 + severity.
 - **PRI 166:** 20 × 8 + 6 = 166 → local4.info
 - **local5.info:** 21 × 8 + 6 = 174
 ___
-### Ö4 – RFC 3164 mot RFC 5424
+### Ö4 – RFC 3164 mot RFC 5424✅
 
 **Fråga:** Nämn två saker i tidsstämpeln som RFC 5424 har men RFC 3164 saknar, och varför de spelar roll när loggar från flera värdar ska läggas i ordning.
 
@@ -50,7 +50,7 @@ ___
 
 RFC 5424 visar årtal och tidszon, vilket RFC 3164 inte gör. Det är viktigt för att kunna jämföra loggar från olika servrar och se i vilken ordning händelserna inträffade.
 ___
-### Ö5 – Vad skyddar TLS?
+### Ö5 – Vad skyddar TLS?✅
 
 **Fråga:** Vilka tre hot mot loggtrafiken skyddar TLS mot enligt RFC 5425? Nämn ett hot som TLS på transporten inte skyddar mot.
 
@@ -62,7 +62,7 @@ ___
 
 TLS skyddar däremot inte mot en komprometterad server. Om en angripare får root-behörighet kan personen läsa, ändra eller radera lokala loggar.
 ___
-### Ö6 – Journal och fil
+### Ö6 – Journal och fil✅
 
 **Fråga:** Var lagras journald:s journal om /var/log/journal saknas, och vad händer då vid omstart? Varför finns samma sshd-händelse både i journalen och i /var/log/secure?
 
@@ -72,7 +72,7 @@ Om /var/log/journal saknas och Storage=auto används sparas loggarna tillfällig
 
 Samma SSH-händelse finns på båda ställena eftersom journald samlar in loggar från systemet och rsyslog läser dem och sparar säkerhets- och inloggningshändelser i /var/log/secure.
 ___
-### Ö7 – Regeln för messages
+### Ö7 – Regeln för messages✅
 
 **Fråga:** Vad betyder `*.info;mail.none;authpriv.none;cron.none /var/log/messages`?
 
@@ -82,7 +82,7 @@ Regeln betyder att alla loggkällor med severity info eller allvarligare sparas 
 
 Dessa tre loggkällor undantas eftersom de har egna loggfiler, till exempel /var/log/secure för authpriv.
 ___
-### Ö8 – Kö
+### Ö8 – Kö❌
 
 **Fråga:** Vad är skillnaden mellan en minneskö och en diskstödd kö i rsyslog, och vilken parameter gör kön diskstödd? Vad gör action.resumeRetryCount="-1"?
 
@@ -94,7 +94,19 @@ En minneskö lagrar loggar i RAM-minnet och de kan försvinna vid omstart. En di
 - **queue.saveOnShutdown="on":** Sparar kön vid omstart.
 - **action.resumeRetryCount="-1":** Gör att rsyslog fortsätter försöka skicka loggarna utan någon gräns för antalet försök.
 ___
-### Ö10 – Fråga eller beställning?
+### Ö9 – uid, euid och auid❌
+
+**Fråga:** Du loggar in som student och kör `sudo cat /etc/shadow`. Vilka värden får uid, euid och auid i auditposten, och vilket av dem gör att det går att se vem som körde kommandot?
+
+**Svar:**
+
+- **uid=0:** Kommandot körs som root.
+- **euid=0:** Kommandot har root-behörighet.
+- **auid=1000:** Visar vilken användare som ursprungligen loggade in, i detta fall student.
+
+Det är auid som gör att vi kan spåra vem som körde kommandot, även om sudo användes.
+___
+### Ö10 – Fråga eller beställning?✅
 
 **Fråga:** Vilka av följande är frågor som kan styra ett urval, och vilka är beställningar av en loggkälla? Skriv om beställningarna till frågor.
 
